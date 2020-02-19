@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "linkedList.cpp"
 
@@ -10,22 +11,20 @@ struct datos{
 };
 
 int main(){
-	
-	linkedList<int> newList(1);
+	// Lugar para hacer pruebas con los archivos nuevos
+	linkedList<int> newList(20);
 	
 	newList.add(30);
 	newList.add(10);
 	newList.add(50);
 	newList.add(30);
-	newList.add(40);
 	newList.add(30);
 	newList.add(30);
 	newList.add(30);
-	newList.add(300);
 	
 	cout << newList.lenght << endl;
 	
-	//newList.clear();
+	newList.add(40, 8);
 	//cout << newList.get(9) << endl;
 	
 	cout << newList.lenght << endl;

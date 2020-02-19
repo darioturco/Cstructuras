@@ -1,25 +1,27 @@
 #include <iostream>
 template <typename T>
 
-class linkedList{
+class doubleList{
 	
 	private:
+	
 	struct element{
 		T obj;
 		struct element* next = NULL;
 	};
 	
 	struct element* head = NULL;
+	struct element* tail = NULL;
 	
 	public:
 	int lenght = 0;
 	
-	linkedList(){// Constructor of 0 obj
+	doubleList(){// Constructor of 0 obj
 		head = NULL; // hacerla usando 'linkedList<T> newList;'
 		lenght = 0;
 	}
 	
-	linkedList(T obj){// Constructor of 1 obj
+	doubleList(T obj){// Constructor of 1 obj
 		head = (struct element*) malloc(sizeof(struct element));
 		head -> obj = obj;
 		lenght = 1;
@@ -217,5 +219,3 @@ class linkedList{
 	}
 	
 };
-
-
