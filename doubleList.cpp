@@ -33,22 +33,72 @@ class doubleList{
 	void addFirst(T obj){
 		struct element* newElement = (struct element*) malloc(sizeof(struct element));
 		newElement -> obj = obj;
-		newElement -> next = head;
-		head -> prev = newElement;
-		head = newElement;
+		if(lenght == 0){
+			head = newElement;
+			tail = newElement;
+		}else{
+			newElement -> next = head;
+			head -> prev = newElement;
+			head = newElement;
+		}
 		lenght++;
 	}
 	
 	void addLast(T obj){
 		struct element* newElement = (struct element*) malloc(sizeof(struct element));
 		newElement -> obj = obj;
-		newElement -> prev = tail;
-		tail -> next = newElement;
-		tail = newElement;
+		if(lenght == 0){
+			head = newElement;
+			tail = newElement;
+		}else{
+			newElement -> prev = tail;
+			tail -> next = newElement;
+			tail = newElement;
+		}
 		lenght++;
 	}
 	
-	//void add(T obj, int index){}
+	void add(T obj, int index){
+		if(index < 0 || index > lenght) throw std::runtime_error("Invalid Index.");
+		struct element* newElement = (struct element*) malloc(sizeof(struct element));
+		newElement -> obj = obj;
+		if(index == 0){
+			if(lenght == 0){
+				head = newElement;
+				tail = newElement;
+			}else{
+				newElement -> next = head;
+				head -> prev = newElement;
+				head = newElement;
+			}
+		}else{
+			if(index == lenght){
+				newElement -> prev = tail;
+				tail -> next = newElement;
+				tail = newElement;
+			}else{
+				struct element* aux = head;
+				if(index < lenght/2){
+					aux = head;
+					while(index != 1){
+						aux = aux -> next;
+						index--;
+					}
+				}else{
+					aux = tail;
+					while(index != lenght){
+						aux = aux -> prev;
+						index++;
+					}
+				}
+				newElement -> next = aux -> next;
+				aux -> next = newElement;
+				newElement -> prev = aux;
+				newElement -> next -> prev = newElement;
+			}
+		}
+		lenght++;
+	}
 	
 	T get(int index){
 		if(index < 0 || index >= lenght) throw std::runtime_error("Invalid Index.");
@@ -88,7 +138,43 @@ class doubleList{
 		aux -> obj = obj;
 	}
 	
-	//void swap(int index1, int index2){}
+	void swap(int index1, int index2){
+		if(index1 < 0 || index1 >= lenght) throw std::runtime_error("Invalid Index1.");
+		if(index2 < 0 || index2 >= lenght) throw std::runtime_error("Invalid Index2.");
+		if(index1 != index2){
+			struct element* aux1;
+			struct element* aux2;
+			if(index1 < lenght/2){
+				aux1 = head;
+				while(index1 != 0){
+					aux1 = aux1 -> next;
+					index1--;
+				}
+			}else{
+				aux1 = tail;
+				while(index1 != lenght-1){
+					aux1 = aux1 -> prev;
+					index1++;
+				}
+			}
+			if(index2 < lenght/2){
+				aux2 = head;
+				while(index2 != 0){
+					aux2 = aux2 -> next;
+					index2--;
+				}
+			}else{
+				aux2 = tail;
+				while(index2 != lenght-1){
+					aux2 = aux2 -> prev;
+					index2++;
+				}
+			}
+			T objaux = aux1 -> obj;
+			aux1 -> obj = aux2 -> obj;
+			aux2 -> obj = objaux;
+		}
+	}
 	
 	T pop(){
 		if(lenght <= 0) throw std::runtime_error("There are no elements in the list.");
