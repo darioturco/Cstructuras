@@ -59,17 +59,6 @@ class linkedList{
 		lenght++;
 	}
 	
-	void print(){
-		struct element* aux = head;
-		std::cout << "[";
-		while(aux != NULL && aux -> next!= NULL){
-			std::cout << aux -> obj << ", ";
-			aux = aux -> next;
-		}
-		if(aux != NULL) std::cout << aux -> obj;
-		std::cout << "]" << std::endl;
-	}
-	
 	T get(int index){
 		if(index < 0 || index >= lenght) throw std::runtime_error("Invalid Index.");
 		struct element* aux = head;
@@ -110,6 +99,37 @@ class linkedList{
 			aux1 -> obj = aux2 -> obj;
 			aux2 -> obj = objTemp;
 		}
+	}
+	
+	T pop(){		
+		if(lenght <= 0) throw std::runtime_error("There are no elements in the list.");
+		T obj = head -> obj;
+		struct element* aux = head;
+		if(head -> next == NULL){
+			obj = head -> obj;
+			head = NULL;
+		}else{
+			while(aux -> next -> next != NULL){
+				aux = aux -> next;
+			}
+			obj = aux -> next -> obj;
+			aux -> next  = NULL;
+		}
+		lenght--;
+		return obj;
+	}
+	
+	T popFirst(){
+		if(lenght <= 0) throw std::runtime_error("There are no elements in the list.");
+		T obj = head -> obj;
+		obj = head -> obj;
+		if(head -> next == NULL){
+			head = NULL;
+		}else{
+			head = head -> next;
+		}
+		lenght--;
+		return obj;
 	}
 	
 	bool remove(T obj, bool all = false){
@@ -164,39 +184,6 @@ class linkedList{
 		return obj;
 	}
 	
-	T pop(){
-		T obj;
-		struct element* aux = head;
-		if(head != NULL){
-			if(head -> next == NULL){
-				obj = head -> obj;
-				head = NULL;
-			}else{
-				while(aux -> next -> next != NULL){
-					aux = aux -> next;
-				}
-				obj = aux -> next -> obj;
-				aux -> next  = NULL;
-			}
-			lenght--;
-		}
-		return obj;
-	}
-	
-	T popFirst(){
-		T obj;
-		if(head != NULL){
-			obj = head -> obj;
-			if(head -> next == NULL){
-				head = NULL;
-			}else{
-				head = head -> next;
-			}
-			lenght--;
-		}
-		return obj;
-	}
-	
 	int indexOf(T obj){
 		int res = 0;
 		struct element* aux = head;
@@ -214,6 +201,17 @@ class linkedList{
 	void clear(){ // elimina toda la lista
 		head = NULL;
 		lenght = 0;
+	}
+	
+	void print(){ // Imprime la lista solo si T es imprimible
+		struct element* aux = head;
+		std::cout << "[";
+		while(aux != NULL && aux -> next!= NULL){
+			std::cout << aux -> obj << ", ";
+			aux = aux -> next;
+		}
+		if(aux != NULL) std::cout << aux -> obj;
+		std::cout << "]" << std::endl;
 	}
 	
 };
