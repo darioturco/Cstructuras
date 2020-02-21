@@ -2,6 +2,7 @@
 #include <iostream>
 #include "linkedList.cpp"
 #include "doubleList.cpp"
+#include "Stack.cpp"
 
 using namespace std;
 
@@ -12,21 +13,23 @@ struct datos{
 
 int main(){
 	// Lugar para hacer pruebas con los archivos nuevos
-	doubleList<int> newList;
-	newList.addLast(10);
-	newList.addLast(20);
-	newList.addLast(30);
-	newList.addLast(40);
-	newList.addLast(50);
+	Stack<int> newStack;
 	
-	cout << newList.lenght << endl;
-	newList.print();
+	cout << newStack.lenght << endl;
+
+	newStack.push(5);
+	newStack.push(4);
+	newStack.push(3);
+	newStack.push(2);
 	
-	newList.add(100, 1);
+	cout << newStack.pop() << endl;
+	cout << newStack.pop() << endl;
+	cout << newStack.pop() << endl;
+	cout << newStack.pop() << endl;
 	
-	newList.print();
-	newList.printBack();
-	cout << newList.lenght << endl;
+	
+	newStack.print();
+	cout << newStack.lenght << endl;
 	
 	return 0;
 }
