@@ -3,6 +3,7 @@
 #include "linkedList.cpp"
 #include "doubleList.cpp"
 #include "Stack.cpp"
+#include "Queue.cpp"
 
 using namespace std;
 
@@ -13,23 +14,24 @@ struct datos{
 
 int main(){
 	// Lugar para hacer pruebas con los archivos nuevos
-	Stack<int> newStack;
+	Queue<int> newQueue;
 	
-	cout << newStack.lenght << endl;
-
-	newStack.push(5);
-	newStack.push(4);
-	newStack.push(3);
-	newStack.push(2);
+	cout << newQueue.lenght << endl;
 	
-	cout << newStack.pop() << endl;
-	cout << newStack.pop() << endl;
-	cout << newStack.pop() << endl;
-	cout << newStack.pop() << endl;
+	newQueue.push(0);
+	newQueue.push(1);
+	newQueue.push(2);
+	newQueue.push(3);
+	newQueue.push(4);
 	
+	cout << newQueue.pop() << endl;
+	cout << newQueue.pop() << endl;
+	cout << newQueue.pop() << endl;
+	cout << newQueue.pop() << endl;
+	cout << newQueue.pop() << endl;
 	
-	newStack.print();
-	cout << newStack.lenght << endl;
+	newQueue.print();
+	cout << newQueue.lenght << endl;
 	
 	return 0;
 }
