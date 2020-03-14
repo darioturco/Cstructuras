@@ -1,9 +1,10 @@
-
 #include <iostream>
 #include "linkedList.cpp"
 #include "doubleList.cpp"
 #include "Stack.cpp"
 #include "Queue.cpp"
+#include "Disjoint.cpp"
+#include "Binary_Tree.cpp"
 
 using namespace std;
 
@@ -14,24 +15,31 @@ struct datos{
 
 int main(){
 	// Lugar para hacer pruebas con los archivos nuevos
-	Queue<int> newQueue;
+	BinaryTree<int> Binary(1);
+	//cout << Binary.lenght << endl;
+
+	Binary.addNode(2);
+	Binary.addNode(3);
+	Binary.addNode(4);
+	Binary.addNode(5);
 	
-	cout << newQueue.lenght << endl;
+	Binary.popNode();
+	Binary.popNode();
+	Binary.popNode();
+	Binary.popNode();
+	Binary.popNode();
+
+	Binary.addNode(30);
+	//cout << Binary.findNode(5) << endl;
 	
-	newQueue.push(0);
-	newQueue.push(1);
-	newQueue.push(2);
-	newQueue.push(3);
-	newQueue.push(4);
+	//cout << Binary.getNode(1) << endl;
+	//Binary.setNode(40, 1);
+	Binary.print();
 	
-	cout << newQueue.pop() << endl;
-	cout << newQueue.pop() << endl;
-	cout << newQueue.pop() << endl;
-	cout << newQueue.pop() << endl;
-	cout << newQueue.pop() << endl;
+
+	//cout << Binary.lenght << endl;
+	cout << "Funciona" << endl;
 	
-	newQueue.print();
-	cout << newQueue.lenght << endl;
-	
+
 	return 0;
 }

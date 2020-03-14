@@ -5,11 +5,11 @@ class Disjoint{
 	private:
 	struct set{
 		T head;
-		T* childs = [];
-		//Usar listas simplemente enlasadas
+		linkedList<T> childs;
+		
 	};
 	
-	struct element* head = NULL;
+	linkedList<struct set*> listSet;
 	
 	public:
 	int lenght = 0;// cuenta la cantidad de sets
@@ -18,7 +18,13 @@ class Disjoint{
 		
 	}
 	
-	//void addSet(){}
+	void addSet(T elem){
+		struct set* newSet = (struct set*) malloc(sizeof(struct set));;
+		newSet -> head = elem;
+		listSet.add(newSet);
+	}
+	
+	//void addElement(int index, int elem){}
 	
 	//void removeSet(int index){}
 	
