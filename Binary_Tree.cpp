@@ -88,7 +88,7 @@ class BinaryTree{
 		lenght = 0; 
 	}
 	
-	void print(){
+	void print(){ //BFS
 		int cont = 2, limite = 2;
 		Queue<struct Node*> TList;
 		struct Node* aux;
@@ -106,7 +106,25 @@ class BinaryTree{
 		}
 		std::cout << std::endl;
 	}
+
+	void preorder(){
+		std::cout << "[ ";
+		if(head != NULL) preorderAux(head);
+		std::cout << "]" << std::endl;
+	}
+
+	void inorder(){
+		std::cout << "[ ";
+		if(head != NULL) inorderAux(head);
+		std::cout << "]" << std::endl;
+	}
 	
+	void posorder(){
+		std::cout << "[ ";
+		if(head != NULL) posorderAux(head);
+		std::cout << "]" << std::endl;
+	}
+
 	private:
 
 	int segundoBit(int& num){
@@ -181,5 +199,23 @@ class BinaryTree{
 				setNodeAux(val, truePos, pos, nod -> right);
 			}		
 		}
+	}
+
+	void preorderAux(struct Node* nod){
+		std::cout << nod -> value << " ";
+		if(nod -> left != NULL) preorderAux(nod -> left);
+		if(nod -> right != NULL) preorderAux(nod -> right);
+	}
+
+	void inorderAux(struct Node* nod){
+		if(nod -> left != NULL) inorderAux(nod -> left);
+		std::cout << nod -> value << " ";
+		if(nod -> right != NULL) inorderAux(nod -> right);
+	}
+
+	void posorderAux(struct Node* nod){
+		if(nod -> left != NULL) posorderAux(nod -> left);
+		if(nod -> right != NULL) posorderAux(nod -> right);
+		std::cout << nod -> value << " ";
 	}
 };

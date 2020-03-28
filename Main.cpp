@@ -5,6 +5,7 @@
 #include "Queue.cpp"
 #include "Disjoint.cpp"
 #include "Binary_Tree.cpp"
+#include "Binary_Search_Tree.cpp"
 
 using namespace std;
 
@@ -15,27 +16,25 @@ struct datos{
 
 int main(){
 	// Lugar para hacer pruebas con los archivos nuevos
-	BinaryTree<int> Binary(1);
+	BinarySearchTree<int> Binary(20);
 	//cout << Binary.lenght << endl;
 
-	Binary.addNode(2);
-	Binary.addNode(3);
-	Binary.addNode(4);
+	Binary.addNode(10);
 	Binary.addNode(5);
-	
-	Binary.popNode();
-	Binary.popNode();
-	Binary.popNode();
-	Binary.popNode();
-	Binary.popNode();
+	Binary.addNode(15);
+	Binary.addNode(1);
+	Binary.addNode(40);
+	Binary.addNode(35);
+	Binary.addNode(60);
+	Binary.addNode(50);
+	Binary.addNode(70);
 
-	Binary.addNode(30);
-	//cout << Binary.findNode(5) << endl;
-	
-	//cout << Binary.getNode(1) << endl;
-	//Binary.setNode(40, 1);
+	cout << Binary.findMin() << endl;
+
 	Binary.print();
-	
+	Binary.preorder();
+	Binary.inorder();
+	Binary.posorder();
 
 	//cout << Binary.lenght << endl;
 	cout << "Funciona" << endl;
