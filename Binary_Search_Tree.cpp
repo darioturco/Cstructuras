@@ -101,7 +101,6 @@ class BinarySearchTree{
 	}
 
 	void print(){ //BFS
-		int cont = 2, limite = 2;
 		Queue<struct Node*> TList;
 		struct Node* aux;
 		if(lenght > 0) TList.push(head);
@@ -110,11 +109,6 @@ class BinarySearchTree{
 			std::cout << aux -> value << "  ";
 			if(aux -> left != NULL) TList.push(aux -> left);
 			if(aux -> right != NULL) TList.push(aux -> right);
-			if(cont == limite){
-				limite *= 2;
-				std::cout << std::endl;
-			}
-			cont++;
 		}
 		std::cout << std::endl;
 	}

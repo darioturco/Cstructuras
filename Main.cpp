@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "linkedList.cpp"
 #include "doubleList.cpp"
 #include "Stack.cpp"
@@ -6,6 +7,7 @@
 #include "Disjoint.cpp"
 #include "Binary_Tree.cpp"
 #include "Binary_Search_Tree.cpp"
+#include "Sorting.cpp"
 
 using namespace std;
 
@@ -15,10 +17,20 @@ struct datos{
 };
 
 int main(){
-	// Lugar para hacer pruebas con los archivos nuevos
-	BinarySearchTree<int> Binary(20);
-	//cout << Binary.lenght << endl;
 
+	vector<int> vec = vector<int>();
+	vec = {1,8,2,9,5,3,4};
+
+	//printVector(vec);
+
+	function();
+
+	bubbleVisualSort(vec, false);
+
+	//printVector(vec);	
+
+	// Lugar para hacer pruebas con los archivos nuevos
+	/*BinarySearchTree<int> Binary;
 	Binary.addNode(10);
 	Binary.addNode(5);
 	Binary.addNode(15);
@@ -29,16 +41,13 @@ int main(){
 	Binary.addNode(50);
 	Binary.addNode(70);
 
-	cout << Binary.findMin() << endl;
-
 	Binary.print();
 	Binary.preorder();
 	Binary.inorder();
-	Binary.posorder();
+	Binary.posorder();*/
 
 	//cout << Binary.lenght << endl;
-	cout << "Funciona" << endl;
-	
+	//cout << "Funciona" << endl;
 
 	return 0;
 }
