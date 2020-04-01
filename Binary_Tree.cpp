@@ -50,7 +50,6 @@ class BinaryTree{
 			int l = lenght/2;
 			return popNodeAux(lenght/2, l, head);	
 		}
-		
 	}
 
 	T getNode(int pos){
